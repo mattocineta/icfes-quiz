@@ -676,7 +676,7 @@ Pregunta número ${state.qNum}. Varía el nivel de dificultad y el enfoque.`;
       },
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.9, maxOutputTokens: 1000 }
+        generationConfig: { temperature: 0.9, maxOutputTokens: 2048 }
       }),
     });
     const data = await res.json();
