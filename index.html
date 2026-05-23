@@ -678,10 +678,12 @@ generationConfig: { temperature: 0.9, maxOutputTokens: 16000, thinkingConfig: { 
     });
     const data = await res.json();
     console.log("API response:", JSON.stringify(data));
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
-    const clean = text.replace(/```json|```/g, "").trim();
-    console.log("Parsed text:", clean);
-    state.questionData = JSON.parse(clean);
+   const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+const clean = text.replace(/```json|```/g, "").trim();
+console.log("Parsed text:", clean);
+const match = clean.match(/\{[\s\S]*\}/);
+if (!match) throw new Error("No JSON found");
+state.questionData = JSON.parse(match[0]);
     renderQuestion();
   } catch(e) {
     console.error("Fetch error:", e);
