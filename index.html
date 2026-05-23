@@ -673,7 +673,7 @@ Pregunta número ${state.qNum}. Varía el nivel de dificultad y el enfoque.`;
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
-generationConfig: { temperature: 0.9, maxOutputTokens: 8192, thinkingConfig: { thinkingBudget: 0 } }
+generationConfig: { temperature: 0.9, maxOutputTokens: 16000, thinkingConfig: { thinkingBudget: 1024 } }
       }),
     });
     const data = await res.json();
