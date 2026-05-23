@@ -672,7 +672,7 @@ async function fetchQuestion(retries = 3) {
   const prompt = "Genera una pregunta ICFES de opcion multiple sobre " + label + ", subtema: " + sub + ". Responde UNICAMENTE con este JSON sin texto extra ni markdown: {\"pregunta\":\"texto de la pregunta\",\"opciones\":{\"A\":\"opcion A\",\"B\":\"opcion B\",\"C\":\"opcion C\",\"D\":\"opcion D\"},\"correcta\":\"A\",\"explicacion\":\"explicacion breve\"}";
 
   try {
-    const GEMINI_KEY = "TU_API_KEY_AQUI";
+    const GEMINI_KEY = "AIzaSyDPkG-V-sfe_vN17lbFulo8pXUhDiQT5Kg";
     const res = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + GEMINI_KEY, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
